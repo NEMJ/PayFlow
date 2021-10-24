@@ -59,7 +59,9 @@ class _LoginPageState extends State<LoginPage> {
                       left: 40,
                       right: 40,
                       top: 40),
-                    child: SocialLoginButton(),
+                    child: SocialLoginButton(onTap: (){
+                      print("Clicou");
+                    }),
                   ),
                 ],
               ),
