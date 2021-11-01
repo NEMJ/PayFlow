@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthController {
   UserModel? _user;
 
-  UserModel get user => user!;
+  UserModel get user => user;
 
   void setUser(BuildContext context, UserModel? user) {
     if(user != null){
