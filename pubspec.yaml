@@ -42,6 +42,7 @@ dependencies:
   google_ml_kit: ^0.7.2
   camera: ^0.9.4+3
   image_picker: ^0.8.4+4
+  font_awesome_flutter: ^9.2.0
 
 dev_dependencies:
   flutter_test:
