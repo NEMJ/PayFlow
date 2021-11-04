@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/shared/models/boleto_model.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
+import 'package:payflow/shared/widgets/boleto_list/boleto_list_widget.dart';
+import 'package:payflow/shared/widgets/boleto_tile/boleto_tile_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final controller = HomeController();
   final pages = [
-    Container(color: Colors.red),
+    Container(child: BoletoListWidget()),
     Container(color: Colors.blue),
   ];
   @override
@@ -32,15 +35,12 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyles.titleRegular,
                   children: [
                     TextSpan(
-                      text: "Nelson",
-                      style: TextStyles.titleBoldBackground
-                    ),
+                        text: "Nelson", style: TextStyles.titleBoldBackground),
                   ],
                 ),
               ),
-              subtitle: Text(
-                "Mantenha suas contas em dia",
-                style: TextStyles.captionShape),
+              subtitle: Text("Mantenha suas contas em dia",
+                  style: TextStyles.captionShape),
               trailing: Container(
                 height: 48,
                 width: 48,
@@ -60,17 +60,16 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              onPressed: (){
-                controller.setPage(0);
-                setState(() {});
-              },
-              icon: Icon(
-                Icons.home,
-                color: AppColors.primary,
-              )
-            ),
+                onPressed: () {
+                  controller.setPage(0);
+                  setState(() {});
+                },
+                icon: Icon(
+                  Icons.home,
+                  color: AppColors.primary,
+                )),
             GestureDetector(
-              onTap: (){},
+              onTap: () {},
               child: Container(
                 height: 56,
                 width: 56,
@@ -79,27 +78,25 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: IconButton(
-                  onPressed: (){
-                    // Navigator.pushNamed(context, "/barcode_scanner");
-                    Navigator.pushNamed(context, "/insert_boleto");
-                  },
-                  icon: Icon(
-                    Icons.add_box_outlined,
-                    color: AppColors.background,
-                  )
-                ),
+                    onPressed: () {
+                      // Navigator.pushNamed(context, "/barcode_scanner");
+                      Navigator.pushNamed(context, "/insert_boleto");
+                    },
+                    icon: Icon(
+                      Icons.add_box_outlined,
+                      color: AppColors.background,
+                    )),
               ),
             ),
             IconButton(
-              onPressed: (){
-                controller.setPage(1);
-                setState(() {});
-              },
-              icon: Icon(
-                Icons.description_outlined,
-                color: AppColors.body,
-              )
-            ),
+                onPressed: () {
+                  controller.setPage(1);
+                  setState(() {});
+                },
+                icon: Icon(
+                  Icons.description_outlined,
+                  color: AppColors.body,
+                )),
           ],
         ),
       ),

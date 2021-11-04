@@ -12,7 +12,7 @@ class InsertBoletoPage extends StatefulWidget {
   const InsertBoletoPage({
     Key? key,
     this.barcode,
-    }) : super(key: key);
+  }) : super(key: key);
 
   @override
   State<InsertBoletoPage> createState() => _InsertBoletoPageState();
@@ -22,10 +22,10 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
   final controller = InsertBoletoController();
 
   final moneyInputTextController = MoneyMaskedTextController(
-      leftSymbol: "R\$",
-      decimalSeparator: ",",
+    leftSymbol: "R\$",
+    decimalSeparator: ",",
   );
-  
+
   final dueDateInputTextController = MaskedTextController(mask: "00/00/0000");
   final barcodeInputTextController = TextEditingController();
 
@@ -91,11 +91,10 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
                       label: "Valor",
                       icon: FontAwesomeIcons.wallet,
                       validator: (_) => controller
-                        .validateValor(moneyInputTextController.numberValue),
+                          .validateValor(moneyInputTextController.numberValue),
                       onChanged: (value) {
                         controller.onChange(
-                          value: moneyInputTextController.numberValue
-                        );
+                            value: moneyInputTextController.numberValue);
                       },
                     ),
                     InputTextWidget(
@@ -121,8 +120,9 @@ class _InsertBoletoPageState extends State<InsertBoletoPage> {
           Navigator.pop(context);
         },
         secondaryLabel: "Cadastrar",
-        secondaryOnPressed: () {
-          controller.cadastrarBoleto();
+        secondaryOnPressed: () async {
+          await controller.cadastrarBoleto();
+          Navigator.pop(context);
         },
       ),
     );
